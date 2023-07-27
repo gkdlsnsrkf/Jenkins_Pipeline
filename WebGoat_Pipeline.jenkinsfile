@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage ('Compile Stage') {
+            steps {
+		dir('D:/desktop/WebGoat-2023.4/'){
+		    bat 'mvn.cmd clean compile'
+		}
+            }
+        }
+
+        stage ('Package Stage') {
+           steps {
+		dir('D:/desktop/WebGoat-2023.4/'){
+		    bat 'mvn.cmd package
+		}
+            }
+        }
+    }
+}
