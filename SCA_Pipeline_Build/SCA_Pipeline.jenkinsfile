@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+	stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+
+        stage ('SCA_Build_stage') {
+            steps {
+		   bat 'sourceanalyzer -b esvali -clean'
+		   bat 'sourceanalyzer -b esvali -source 17 D:/desktop/WebGoat-2023.4/src/main/java/org/owasp/webgoat/lessons/'
+		   bat 'sourceanalyzer -b esvali -scan -f WebGoat_Pipeline.fpr'
+            }
+        }
+
+	stage('Good Bye, 씨유레이타 ㅋ') {
+            steps {
+                echo 'Good Bye, 씨유레이타 ㅋ'
+            }
+        }
+    }
+}
