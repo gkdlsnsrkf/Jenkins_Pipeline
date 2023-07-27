@@ -16,9 +16,9 @@ pipeline {
             }
         }
 
-	stage('Good Bye, 씨유레이타 ㅋ') {
+	stage('Good Bye') {
             steps {
-                echo 'Good Bye, 씨유레이타 ㅋ'
+                echo 'Good Bye, See you later'
             }
         }
     }
