@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+	stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+
+        stage ('SCA_Build_stage') {
+            steps {
+		   bat 'sourceanalyzer -b esvali -clean'
+		   bat 'sourceanalyzer -b esvali D:/desktop/WebGoat-2023.4/src/main/java/org/owasp/webgoat/lessons/csrf/'
+		   bat 'sourceanalyzer -b esvali -scan -f WebGoat_CSRF_Pipeline.fpr'
+            }
+        }
+    }
+}
