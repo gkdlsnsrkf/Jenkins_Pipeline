@@ -13,7 +13,7 @@ pipeline {
         stage ('Package Stage') {
            steps {
 		dir('D:/desktop/WebGoat-2023.4/'){
-		    bat 'mvn.cmd package -DskipTests'
+		    bat 'mvn.cmd package -Dmaven.test.failure.ignore=true'
 		}
             }
         }
